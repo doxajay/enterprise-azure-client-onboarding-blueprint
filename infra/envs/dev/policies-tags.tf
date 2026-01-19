@@ -1,5 +1,6 @@
 ############################################
 # Azure Policy – Require Environment Tag
+# Scope: Subscription
 ############################################
 
 data "azurerm_policy_definition" "require_tag" {
@@ -13,7 +14,8 @@ resource "azurerm_subscription_policy_assignment" "require_environment_tag" {
   display_name         = "Require Environment tag on all resources"
 
   parameters = jsonencode({
-    tagName = { value = "Environment" }
-    effect  = { value = "Deny" }
+    tagName = {
+      value = "Environment"
+    }
   })
 }
