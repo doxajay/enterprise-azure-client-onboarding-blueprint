@@ -3,8 +3,6 @@
 # Streams NSG logs to Log Analytics workspace
 ############################################
 
-# Get current subscription (for assignment scope)
-data "azurerm_subscription" "current" {}
 
 # Lookup the built-in policy definition
 data "azurerm_policy_definition" "diag_nsg_to_law" {
